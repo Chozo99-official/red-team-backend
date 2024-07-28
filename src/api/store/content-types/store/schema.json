@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stores",
+  "info": {
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_name": {
+      "type": "string",
+      "required": true
+    },
+    "store_description": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "store"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "store"
+    },
+    "address": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "store_transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-transaction.store-transaction",
+      "mappedBy": "store"
+    },
+    "money": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "verification": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "confirm"
+      ],
+      "default": "pending"
+    },
+    "ktp_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "nik": {
+      "type": "biginteger",
+      "required": true
+    },
+    "product_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_transactions",
+  "info": {
+    "singularName": "store-transaction",
+    "pluralName": "store-transactions",
+    "displayName": "Store Transaction"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "store_transaction"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store",
+      "inversedBy": "store_transactions"
+    },
+    "amount": {
+      "type": "biginteger",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "success"
+      ],
+      "default": "pending",
+      "required": false
+    }
+  }
+}
