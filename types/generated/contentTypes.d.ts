@@ -1165,9 +1165,9 @@ export interface ApiStoreStore extends Schema.CollectionType {
     money: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     verification: Attribute.Enumeration<['pending', 'confirm']> &
       Attribute.DefaultTo<'pending'>;
-    ktp_image: Attribute.Media<'images'> & Attribute.Required;
+    ktp_image: Attribute.Media<'images'>;
     nik: Attribute.BigInteger & Attribute.Required;
-    product_image: Attribute.Media<'images', true> & Attribute.Required;
+    product_image: Attribute.Media<'images', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
